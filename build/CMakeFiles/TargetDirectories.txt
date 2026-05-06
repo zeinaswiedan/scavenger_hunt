@@ -1,0 +1,5 @@
+/home/omarhelmy/CSProject/build/CMakeFiles/ScavengerHunt.dir
+/home/omarhelmy/CSProject/build/CMakeFiles/edit_cache.dir
+/home/omarhelmy/CSProject/build/CMakeFiles/rebuild_cache.dir
+/home/omarhelmy/CSProject/build/CMakeFiles/ScavengerHunt_autogen_timestamp_deps.dir
+/home/omarhelmy/CSProject/build/CMakeFiles/ScavengerHunt_autogen.dir
