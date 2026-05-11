@@ -1,0 +1,5 @@
+/home/green/scavenger_hunt/build/Desktop-Debug/CMakeFiles/ScavengerHunt.dir
+/home/green/scavenger_hunt/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/green/scavenger_hunt/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/green/scavenger_hunt/build/Desktop-Debug/CMakeFiles/ScavengerHunt_autogen_timestamp_deps.dir
+/home/green/scavenger_hunt/build/Desktop-Debug/CMakeFiles/ScavengerHunt_autogen.dir

@@ -1,22 +1,20 @@
 #pragma once
-
-enum class GameState{
-	Menu,
-	Playing,
-	Paused,
-	Win,
-	Lose,
-	Level_Complete
+enum class GameState {
+    Menu,
+    Playing,
+    Paused,
+    Win,
+    Lose,
+    Level_Complete
 };
-
-class GameStateManager{
+class GameStateManager {
 public:
-	GameStateManager();
-	void setState(GameState newState);
-	GameState getState() const;
-	bool isPlaying() const;
-	bool isPaused() const;
-	bool isOver() const;
+    GameStateManager();
+    void setState(GameState newState);
+    GameState getState() const;
+    bool isPlaying() const;
+    bool isPaused()  const;
+    bool isOver()    const;
 private:
-	GameState state;
+    GameState state;
 };

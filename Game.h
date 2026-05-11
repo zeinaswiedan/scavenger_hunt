@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Player.h"
 #include "Hint.h"
 #include "GameStateManager.h"
@@ -9,48 +8,52 @@
 
 class Game {
 public:
-    	Game(int mapWidth, int mapHeight, int screenWidth, int screenHeight);
-    	~Game();
+    Game(int mapWidth, int mapHeight, int screenWidth, int screenHeight);
+    ~Game();
 
-    	void start(const QString &playerName);
-    	void reset();
-    	void update();
-    	void tickOxygen();
-        void setPlayerMoving(Qt::Key key, bool pressed);
+    void start(const QString &playerName);
+    void reset();
+    void update();
+    void tickOxygen();       // called every second
+    void setPlayerMoving(Qt::Key key, bool pressed);
 
-   	QPoint getCameraOffset() const;
+    QPoint  getCameraOffset()    const;
+    QString getCurrentMessage()  const;
+    bool    hasActiveMessage()   const;
+    void    dismissMessage();
 
-    	QString getCurrentMessage() const;
-    	bool    hasActiveMessage()  const;
-    	void    dismissMessage();
-
-    	Player           *getPlayer()       const;
-    	QList<Hint *>     getHints()        const;
-    	GameStateManager *getStateManager() const;
-    	int           getCurrentHintIndex() const;
+    Player           *getPlayer()          const;
+    QList<Hint *>     getHints()           const;
+    GameStateManager *getStateManager()    const;
+    int               getCurrentHintIndex() const;
+    int               getScore()           const;
+    int               getElapsedSeconds()  const;
 
 private:
-    	void spawnHints();
-    	void updateCamera();
-    	void checkCollisions();
-    	bool checkWinCondition();
-    	bool checkLoseCondition();
+    void spawnHints();
+    void updateCamera();
+    void checkCollisions();
+    bool checkWinCondition();
+    bool checkLoseCondition();
+    void onHintCollected(int index);
+    void activateTreasureIfReady();
 
-	void onHintCollected(int index);
+    Player           *player;
+    QList<Hint *>     hints;      // clues only (index 0..N-1)
+    Hint             *treasure;   // final treasure — separate
+    GameStateManager *stateManager;
 
-	Player           *player;
-    	QList<Hint *>     hints;
-    	GameStateManager *stateManager;
+    int    mapWidth, mapHeight, screenWidth, screenHeight;
+    QPoint cameraOffset;
+    int    currentHintIndex;  // which clue is next (ignores oxygen bubbles)
+    QString activeMessage;
+    bool    messageActive;
 
-    	int mapWidth;
-    	int mapHeight;
-    	int screenWidth;
-    	int screenHeight;
+    float oxygenDrainRate;   // % per second
+    int   collectionRadius;
 
-    	QPoint cameraOffset;
-       	int     currentHintIndex;
-    	QString activeMessage;
-    	bool    messageActive;
-	float oxygenDrainRate;
-	int collectionRadius;
+    int   score;
+    int   elapsedSeconds;
+    bool  treasureActive;
+    bool  treasureCollected;
 };
