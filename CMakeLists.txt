@@ -10,15 +10,26 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(ScavengerHunt
-	main.cpp
-	LoginWindow.cpp
-	MainWindow.cpp
-	Player.cpp
-	Hint.cpp
-	Game.cpp
-	GameWidget.cpp
-	GameStateManager.cpp
-	Shark.cpp
+    main.cpp
+    LoginWindow.cpp
+    LoginWindow.h
+    MainWindow.cpp
+    MainWindow.h
+    Player.cpp
+    Player.h
+    Hint.cpp
+    Hint.h
+    Game.cpp
+    Game.h
+    GameWidget.cpp
+    GameWidget.h
+    GameStateManager.cpp
+    GameStateManager.h
+    Shark.cpp
+    Shark.h
+    GameObject.h
+    LevelConfig.h
+    LevelData.h
 )
 
 target_link_libraries(ScavengerHunt PRIVATE Qt6::Widgets)
